@@ -1,107 +1,21 @@
 import React, { useState } from 'react';
 
-function VehicleDetails({ vehicle, onUpdate }) {
+function VehicleDetails({ vehicle, onUpdate, onClose }) {
   const [newPart, setNewPart] = useState({ name: '', cost: '', supplier: '' });
   const [sellingPrice, setSellingPrice] = useState('');
   const [editingPartIndex, setEditingPartIndex] = useState(null);
   const [isEditingPrice, setIsEditingPrice] = useState(false);
+  const [editingLocation, setEditingLocation] = useState(false);
+  const [newLocation, setNewLocation] = useState(vehicle.location || '');
 
-  const addPart = (e) => {
-    e.preventDefault();
-    if (newPart.name && newPart.cost && newPart.supplier) {
-      const updatedVehicle = {
-        ...vehicle,
-        parts: [...vehicle.parts, { ...newPart, cost: parseFloat(newPart.cost) }]
-      };
-      onUpdate(updatedVehicle);
-      setNewPart({ name: '', cost: '', supplier: '' });
-    }
-  };
-
-  const startEditing = (index) => {
-    setEditingPartIndex(index);
-    setNewPart(vehicle.parts[index]);
-  };
-
-  const cancelEditing = () => {
-    setEditingPartIndex(null);
-    setNewPart({ name: '', cost: '', supplier: '' });
-  };
-
-  const updatePart = (e) => {
-    e.preventDefault();
-    if (editingPartIndex !== null && newPart.name && newPart.cost && newPart.supplier) {
-      const updatedParts = [...vehicle.parts];
-      updatedParts[editingPartIndex] = { ...newPart, cost: parseFloat(newPart.cost) };
-      const updatedVehicle = {
-        ...vehicle,
-        parts: updatedParts
-      };
-      onUpdate(updatedVehicle);
-      setEditingPartIndex(null);
-      setNewPart({ name: '', cost: '', supplier: '' });
-    }
-  };
-
-  const deletePart = (index) => {
-    const updatedParts = vehicle.parts.filter((_, i) => i !== index);
-    const updatedVehicle = {
-      ...vehicle,
-      parts: updatedParts
-    };
-    onUpdate(updatedVehicle);
-  };
-
-  const toggleReadyForSale = () => {
+  // Add this function to handle location updates
+  const handleLocationUpdate = () => {
     onUpdate({
       ...vehicle,
-      readyForSale: !vehicle.readyForSale
+      location: newLocation
     });
+    setEditingLocation(false);
   };
-
-  const markAsSold = (e) => {
-    e.preventDefault();
-    if (sellingPrice) {
-      const updatedVehicle = {
-        ...vehicle,
-        sold: true,
-        sellingPrice: parseFloat(sellingPrice),
-        readyForSale: false
-      };
-      onUpdate(updatedVehicle);
-      setSellingPrice('');
-    }
-  };
-
-  const startEditingPrice = () => {
-    setSellingPrice(vehicle.sellingPrice?.toString() || '');
-    setIsEditingPrice(true);
-  };
-
-  const updateSellingPrice = (e) => {
-    e.preventDefault();
-    if (sellingPrice) {
-      const updatedVehicle = {
-        ...vehicle,
-        sold: true,
-        readyForSale: false,
-        parts: [...vehicle.parts],
-        sellingPrice: parseFloat(sellingPrice)
-      };
-      onUpdate(updatedVehicle);
-      setIsEditingPrice(false);
-    }
-  };
-
-  const cancelEditingPrice = () => {
-    setIsEditingPrice(false);
-    setSellingPrice('');
-  };
-
-  const totalCost = parseFloat(vehicle.cost) + 
-    vehicle.parts.reduce((sum, part) => sum + parseFloat(part.cost), 0);
-  
-  const profit = vehicle.sellingPrice ? vehicle.sellingPrice - totalCost : 0;
 
   return (
     <div className="vehicle-details">

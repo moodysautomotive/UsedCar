@@ -771,6 +771,37 @@ body {
   color: #666;
 }
 
+.location-section {
+  margin: 1rem 0;
+  padding: 1rem 0;
+  border-top: 1px solid #e0e0e0;
+}
+
+.edit-location {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.edit-location input {
+  padding: 0.75rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 1rem;
+  flex: 1;
+}
+
+.location-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.location-display p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
 .vehicle-image-upload {
   display: flex;
   align-items: center;
@@ -1127,4 +1158,35 @@ body {
   margin-top: 0.25rem;
   font-size: 0.9rem;
   color: #666;
+}
+
+.location-section {
+  margin: 1rem 0;
+  padding: 1rem 0;
+  border-top: 1px solid #e0e0e0;
+}
+
+.edit-location {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.edit-location input {
+  padding: 0.75rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 1rem;
+  flex: 1;
+}
+
+.location-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.location-display p {
+  margin: 0;
+  font-size: 1.1rem;
 }
