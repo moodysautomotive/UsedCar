@@ -8,7 +8,6 @@ function VehicleDetails({ vehicle, onUpdate, onClose }) {
   const [editingLocation, setEditingLocation] = useState(false);
   const [newLocation, setNewLocation] = useState(vehicle.location || '');
 
-  // Add this function to handle location updates
   const handleLocationUpdate = () => {
     onUpdate({
       ...vehicle,

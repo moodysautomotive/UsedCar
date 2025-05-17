@@ -8,7 +8,7 @@ function VehicleForm({ onSave }) {
     vin: '',
     mileage: '',
     cost: '',
-    location: '' // Location field is here
+    location: '',  // Add this line
   });
   const [imagePreview, setImagePreview] = useState(null);
 
