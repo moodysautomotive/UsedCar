@@ -39,6 +39,14 @@ function App() {
     }
   };
 
+  const handleVehicleSelect = (vehicle) => {
+    setSelectedVehicle(vehicle);
+  };
+
+  const handleVehicleDelete = (vehicleId) => {
+    deleteVehicle(vehicleId);
+  };
+
   return (
     <div className="App">
       <h1>Used Car Inventory Management</h1>
@@ -46,8 +54,8 @@ function App() {
         <VehicleForm onSave={saveVehicle} />
         <VehicleList 
           vehicles={vehicles} 
-          onSelect={setSelectedVehicle}
-          onDelete={deleteVehicle}
+          onSelect={handleVehicleSelect}
+          onDelete={handleVehicleDelete}
         />
         {selectedVehicle && (
           <VehicleDetails 
