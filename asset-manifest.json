@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/UsedCar/static/css/main.30f26e04.css",
+    "main.css": "/UsedCar/static/css/main.a461d9cd.css",
     "main.js": "/UsedCar/static/js/main.ff03c4e5.js",
     "static/js/453.142fef3a.chunk.js": "/UsedCar/static/js/453.142fef3a.chunk.js",
     "index.html": "/UsedCar/index.html",
-    "main.30f26e04.css.map": "/UsedCar/static/css/main.30f26e04.css.map",
+    "main.a461d9cd.css.map": "/UsedCar/static/css/main.a461d9cd.css.map",
     "main.ff03c4e5.js.map": "/UsedCar/static/js/main.ff03c4e5.js.map",
     "453.142fef3a.chunk.js.map": "/UsedCar/static/js/453.142fef3a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.30f26e04.css",
+    "static/css/main.a461d9cd.css",
     "static/js/main.ff03c4e5.js"
   ]
 }
