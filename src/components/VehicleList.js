@@ -28,6 +28,7 @@ function VehicleList({ vehicles, onSelect, onDelete }) {
                   <span>VIN: {vehicle.vin}</span>
                   <span>Mileage: {vehicle.mileage || 'N/A'}</span>
                   <span>Cost: ${parseFloat(vehicle.cost).toFixed(2)}</span>
+                  <span>Location: {vehicle.location || 'N/A'}</span>
                   <span>Parts Total: ${totalPartsCost.toFixed(2)}</span>
                 </div>
                 <p className="status">Status: {vehicle.sold ? 'Sold' : vehicle.readyForSale ? 'Ready for Sale' : 'In Progress'}</p>

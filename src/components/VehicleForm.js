@@ -7,7 +7,8 @@ function VehicleForm({ onSave }) {
     model: '',
     vin: '',
     mileage: '',
-    cost: ''
+    cost: '',
+    location: '' // Add location field
   });
   const [imagePreview, setImagePreview] = useState(null);
 
@@ -95,6 +96,14 @@ function VehicleForm({ onSave }) {
         name="vin"
         placeholder="VIN"
         value={formData.vin}
+        onChange={handleChange}
+        required
+      />
+      <input
+        type="text"
+        name="location"
+        placeholder="Vehicle Location"
+        value={formData.location}
         onChange={handleChange}
         required
       />
